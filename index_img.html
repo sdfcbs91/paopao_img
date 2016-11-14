@@ -1,0 +1,41 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="applicable-device" content="mobile">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <script src="js/pixi.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"  href="css/index.css"/>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    var docElWidth = 100 * (clientWidth / 320);
+                    if (docElWidth > 200) docElWidth = 200;
+                    docEl.style.fontSize = docElWidth + 'px';
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+            recalc();
+        })(document, window);
+    </script>
+</head>
+<body>
+    <div id="paopao" >
+
+    </div>
+</body>
+<script src="js/paopao_img.js"></script>
+<script>
+    paopao.start(document.getElementById('paopao'));
+</script>
+</html>
